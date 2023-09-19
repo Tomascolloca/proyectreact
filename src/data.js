@@ -1,7 +1,7 @@
 export const data = [
     {
         id: 1,
-        nameProduct: 'nike jordan',
+        nameProduct: 'Nike Jordan',
         img: 'https://blog.ripley.com.pe/wp-content/uploads/2021/08/zapatillas-nike-zoom.jpg',
         cantidad: 1,
         precio: 88500,
@@ -13,7 +13,7 @@ export const data = [
 
     {
         id: 2,
-        nameProduct: 'reloj',
+        nameProduct: 'Reloj',
         img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
         cantidad: 1,
         precio: 4900,
@@ -25,7 +25,7 @@ export const data = [
 
     {
         id: 3,
-        nameProduct: 'smartwatch',
+        nameProduct: 'Smartwatch',
         img: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
         cantidad: 1,
         precio: 10500,
@@ -79,7 +79,7 @@ export const data = [
     },
     {
         id: 8,
-        nameProduct: 'nike zoom 104',
+        nameProduct: 'Nike Zoom 104',
         img: 'https://s1.dswcdn.com/uploads/Nike_Air_Max_Shoes/Air_Max_97/Nike_Air_Max_97_Golf_Triple_Black_Grey_Running_Shoes_CI7538-101.jpg',
         cantidad: 1,
         precio: 72590,
@@ -89,7 +89,7 @@ export const data = [
     },
     {
         id: 9,
-        nameProduct: 'nike pegasus',
+        nameProduct: 'Nike Pegasus',
         img: 'https://static.insales-cdn.com/r/YzGf0OYDByQ/rs:fit:1000:0:1/q:100/plain/images/products/1/470/555655638/26e0b9e4.jpg',
         cantidad: 1,
         precio: 80700,

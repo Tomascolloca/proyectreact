@@ -1,69 +1,108 @@
 import React, { useState } from 'react';
+import './Button.css'
+export default function Header({ allProducts, setAllProducts }) {
+  const [cartVisible, setCartVisible] = useState(false);
 
-export const Header = ({ allProducts, setAllProducts }) => {
-  const [active, setActive] = useState(false);
+  // Función para eliminar productos del carrito
+  const removeFromCart = (productToRemove) => {
+    const updatedCart = allProducts.filter((product) => product.id !== productToRemove.id);
+    setAllProducts(updatedCart);
+  };
+
+  // Función para manejar el proceso de pago (puede ajustarse según tus necesidades)
+  const handleCheckout = () => {
+    // Puedes agregar aquí la lógica para procesar el pago y mostrar un mensaje de agradecimiento
+    alert('Gracias por su compra');
+    // Luego, puedes reiniciar el carrito si es necesario
+    setAllProducts([]);
+  };
+
+  const toggleCartVisibility = () => {
+    setCartVisible(!cartVisible);
+  };
+
+  const calcularTotal = () => {
+    let total = 0;
+    for (const product of allProducts) {
+      total += product.precio * product.cantidad;
+    }
+    return total;
+  };
 
   return (
     <header>
       <h1>Tienda</h1>
 
       <div className="container-icon">
-        <div className='container-cart-icon' onClick={() => setActive(!active)}></div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="icon-cart"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-          />
-        </svg>
-        <div className="count-products">
-          <span id="contador-productos">0</span>
+        <div className='container-cart-icon' onClick={toggleCartVisibility}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="icon-cart"
+          >
+            {/* Icono de carrito aquí */}
+
+            <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  strokeWidth="1.5"
+  stroke="currentColor"
+  className="icon-cart"
+>
+  <path
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    d="M3 4h1l2.68 10.97a2 2 0 002 1.56h8.24a2 2 0 002-1.56L20 4h1M9 14H7a2 2 0 01-2-2m0-4a2 2 0 012-2h10a2 2 0 012 2m-2 4h-2"
+  ></path>
+</svg>
+
+          </svg>
+          <div className="count-products">
+            <span id="contador-productos">{allProducts.length}</span>
+          </div>
         </div>
       </div>
 
-      <div className={`container-cart-products${active ? '' : 'hidden-cart'}`}>
-        {allProducts.length ? (
-          <div>
-            <div className='row-product hidden'>
-              <div className="cart-product">
-                <div className="info-cart-product">
-                  <span className="cantidad-producto-carrito">1</span>
-                  <p className="titulo-producto-carrito">Zapatos Nike</p>
-                  <span className="precio-producto-carrito">$80</span>
+      {cartVisible && (
+        <div className={`container-cart-products`}>
+          {allProducts.length ? (
+            <div>
+              {allProducts.map((product) => (
+                <div className='cart-product' key={product.id}>
+                  <div className='info-cart-product'>
+                    <h3 className='titulo-producto-carrito'>{product.nameProduct}</h3>
+                    <p className='precio-producto-carrito'>${product.precio}</p>
+                    <p className='cantidad-producto-carrito'>{product.cantidad}x</p>
+                  </div>
+                  <button
+                    className="custom-button custom-button-delete"
+                    onClick={() => removeFromCart(product)}
+                  >
+                    Eliminar
+                  </button>
                 </div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="icon-close"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </div>
-              <div className='cart-total hidden'>
+              ))}
+              <div className='cart-total'>
                 <h3>Total:</h3>
-                <span className="total-pagar">$200</span>
+                <span className="total-pagar">${calcularTotal()}</span>
               </div>
+              <button
+                className="custom-button custom-button-checkout"
+                onClick={() => handleCheckout()}
+              >
+                Pagar
+              </button>
             </div>
-          </div>
-        ) : (
-          <p className='cart-empty'>El carrito está vacío</p>
-        )}
-      </div>
+          ) : (
+            <p className='cart-empty'>El carrito está vacío</p>
+          )}
+        </div>
+      )}
     </header>
   );
-};
-
+}

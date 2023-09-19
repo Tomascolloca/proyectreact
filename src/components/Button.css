@@ -12,4 +12,41 @@
   .custom-button:hover {
     background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
   }
-  
+  /* Estilos para el botón de eliminar */
+.custom-button-delete {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para el botón de pagar */
+.custom-button-checkout {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* Estilo para los elementos de la lista en el Navbar */
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Espacio entre elementos */
+}
+
+/* Estilo para los enlaces en el Navbar */
+.navbar-nav .nav-item .nav-link {
+  color: #ffffff; /* Color del texto */
+  font-size: 18px; /* Tamaño del texto */
+  text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Estilo para los enlaces activos en el Navbar */
+.navbar-nav .nav-item.active .nav-link {
+  font-weight: bold; /* Texto en negrita para el enlace activo */
+}
+
