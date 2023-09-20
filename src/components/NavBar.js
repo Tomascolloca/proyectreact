@@ -1,6 +1,6 @@
 // Navbar.js
 
-/*
+
 import React from 'react';
 import './Button.css';
 function Navbar() {
@@ -34,4 +34,4 @@ function Navbar() {
   );
 }
 
-export default Navbar; */
+export default Navbar; 
