@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Añade 'Link' aquí
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import PaymentForm from './components/PaymentForm';
+import Contacto from './components/contacto'; // Importa el componente Contacto
 
 function App() {
   const [allProducts, setAllProducts] = useState([]);
@@ -12,7 +13,7 @@ function App() {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand" href="/">
-            Tu Tienda
+            ALL TITUD
           </a>
           <button
             className="navbar-toggler"
@@ -33,6 +34,9 @@ function App() {
               <li className="nav-item">
                 <Link to="/pago">Pago</Link>
               </li>
+              <li className="nav-item">
+                <Link to="/contacto">Contacto</Link> {/* Actualiza el enlace */}
+              </li>
             </ul>
           </div>
         </nav>
@@ -48,6 +52,7 @@ function App() {
               }
             />
             <Route path="/pago" element={<PaymentForm />} />
+            <Route path="/contacto" element={<Contacto />} /> {/* Actualiza esta ruta */}
           </Routes>
         </div>
       </div>
