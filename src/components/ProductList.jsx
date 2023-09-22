@@ -3,6 +3,7 @@ import { data } from '../data';
 
 export default function ProductList({ allProducts, setAllProducts }) {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
+  const [detailsVisible, setDetailsVisible] = useState({});
 
   const onAddProduct = (product) => {
     // Copia el carrito de compras actual
@@ -24,6 +25,14 @@ export default function ProductList({ allProducts, setAllProducts }) {
   // Función para cambiar la categoría seleccionada
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+  };
+
+  // Función para mostrar u ocultar los detalles de un producto
+  const toggleDetails = (productId) => {
+    setDetailsVisible((prevState) => ({
+      ...prevState,
+      [productId]: !prevState[productId],
+    }));
   };
 
   return (
@@ -49,6 +58,16 @@ export default function ProductList({ allProducts, setAllProducts }) {
                 <h2>{product.nameProduct}</h2>
                 <p className='precio'>${product.precio}</p>
                 <button onClick={() => onAddProduct(product)}>Añadir al carrito</button>
+                <button onClick={() => toggleDetails(product.id)}>
+                  {detailsVisible[product.id] ? 'Ocultar detalles' : 'Saber más'}
+                </button>
+                {detailsVisible[product.id] && (
+                  <div className="product-details">
+                    <p>{product.detalles.entrega}</p>
+                    <p>{product.detalles.garantia}</p>
+                    <p>{product.detalles.otrosDetalles}</p>
+                  </div>
+                )}
               </div>
             </div>
           ))}

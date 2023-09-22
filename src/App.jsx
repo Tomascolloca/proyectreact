@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 
@@ -9,7 +10,9 @@ function App() {
     <>
       {/* Navbar de Bootstrap personalizado */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">Tu Tienda</a>
+        <a className="navbar-brand" href="/">
+          Tu Tienda
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,10 +27,9 @@ function App() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/">Inicio</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/carrito">Carrito</a>
+              <a className="nav-link" href="/">
+                Inicio
+              </a>
             </li>
           </ul>
         </div>
@@ -36,6 +38,7 @@ function App() {
       {/* Contenido de la página */}
       <div className="container">
         <Header allProducts={allProducts} setAllProducts={setAllProducts} />
+        {/* No se necesita Switch ni Route aquí */}
         <ProductList allProducts={allProducts} setAllProducts={setAllProducts} />
       </div>
     </>

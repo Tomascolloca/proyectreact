@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './Button.css'
+
+import './Button.css';
+
 export default function Header({ allProducts, setAllProducts }) {
   const [cartVisible, setCartVisible] = useState(false);
 
@@ -43,7 +45,7 @@ export default function Header({ allProducts, setAllProducts }) {
             stroke="currentColor"
             className="icon-cart"
           >
-            {/* Icono de carrito aquí */}
+            // Icono de carrito aquí 
 
             <svg
   xmlns="http://www.w3.org/2000/svg"
