@@ -28,7 +28,7 @@ export default function Header({ allProducts, setAllProducts }) {
 
   return (
     <header>
-      <h1>Tienda</h1>
+      <h1>Categorias </h1>
 
       <div className="container-icon">
         <div className='container-cart-icon' onClick={toggleCartVisibility}>
@@ -40,7 +40,7 @@ export default function Header({ allProducts, setAllProducts }) {
             stroke="currentColor"
             className="icon-cart"
           >
-            {/* Icono de carrito aquí */}
+<i class="bi bi-bag-heart"></i>
           </svg>
           <div className="count-products">
             <span id="contador-productos">{allProducts.length}</span>

@@ -38,7 +38,15 @@ function App() {
         </nav>
         <div className="container">
           <Routes>
-            <Route path="/" element={<ProductList allProducts={allProducts} setAllProducts={setAllProducts} />} />
+            <Route
+              path="/"
+              element={
+                <div>
+                  <Header allProducts={allProducts} setAllProducts={setAllProducts} />
+                  <ProductList allProducts={allProducts} setAllProducts={setAllProducts} />
+                </div>
+              }
+            />
             <Route path="/pago" element={<PaymentForm />} />
           </Routes>
         </div>
