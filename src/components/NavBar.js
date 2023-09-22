@@ -11,7 +11,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar" style="background-color: #e3f2fd;">  
+    <nav className="navbar" style="background-color: #e3f2fd">  
       <div className="container">
         <a className="navbar-brand" href="/">Tu Tienda</a>
         <button

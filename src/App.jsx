@@ -1,49 +1,50 @@
 import React, { useState } from 'react';
-
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Añade 'Link' aquí
 import Header from './components/Header';
 import ProductList from './components/ProductList';
+import PaymentForm from './components/PaymentForm';
 
 function App() {
   const [allProducts, setAllProducts] = useState([]);
 
   return (
-    <>
-      {/* Navbar de Bootstrap personalizado */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">
-          Tu Tienda
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">
-                Inicio
-              </a>
-            </li>
-          </ul>
+    <Router>
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a className="navbar-brand" href="/">
+            Tu Tienda
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to="/">Inicio</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/pago">Pago</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<ProductList allProducts={allProducts} setAllProducts={setAllProducts} />} />
+            <Route path="/pago" element={<PaymentForm />} />
+          </Routes>
         </div>
-      </nav>
-
-      {/* Contenido de la página */}
-      <div className="container">
-        <Header allProducts={allProducts} setAllProducts={setAllProducts} />
-        {/* No se necesita Switch ni Route aquí */}
-        <ProductList allProducts={allProducts} setAllProducts={setAllProducts} />
       </div>
-    </>
+    </Router>
   );
 }
 
 export default App;
-

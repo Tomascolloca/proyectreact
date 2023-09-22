@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-
 import './Button.css';
 
 export default function Header({ allProducts, setAllProducts }) {
   const [cartVisible, setCartVisible] = useState(false);
 
-  // Función para eliminar productos del carrito
   const removeFromCart = (productToRemove) => {
     const updatedCart = allProducts.filter((product) => product.id !== productToRemove.id);
     setAllProducts(updatedCart);
   };
 
-  // Función para manejar el proceso de pago (puede ajustarse según tus necesidades)
   const handleCheckout = () => {
-    // Puedes agregar aquí la lógica para procesar el pago y mostrar un mensaje de agradecimiento
     alert('Gracias por su compra');
-    // Luego, puedes reiniciar el carrito si es necesario
-    setAllProducts([]);
+    setAllProducts([]); // Reiniciar el carrito
   };
 
   const toggleCartVisibility = () => {
@@ -45,24 +40,7 @@ export default function Header({ allProducts, setAllProducts }) {
             stroke="currentColor"
             className="icon-cart"
           >
-            // Icono de carrito aquí 
-
-            <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  viewBox="0 0 24 24"
-  strokeWidth="1.5"
-  stroke="currentColor"
-  className="icon-cart"
->
-  <path
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth="2"
-    d="M3 4h1l2.68 10.97a2 2 0 002 1.56h8.24a2 2 0 002-1.56L20 4h1M9 14H7a2 2 0 01-2-2m0-4a2 2 0 012-2h10a2 2 0 012 2m-2 4h-2"
-  ></path>
-</svg>
-
+            {/* Icono de carrito aquí */}
           </svg>
           <div className="count-products">
             <span id="contador-productos">{allProducts.length}</span>
