@@ -1,16 +1,37 @@
 import React from 'react';
 import './paymentform.css';
 
-const PaymentForm = () => {
+const PaymentForm = ({ allProducts, setAllProducts }) => {
   const handleCheckout = () => {
-    // Agregar lógica para finalizar la compra aquí
-    alert('Compra finalizada'); // Ejemplo: Mostrar un mensaje de alerta
+    
+    alert('Compra finalizada'); 
+    
+    console.log("Productos en PaymentForm:", allProducts); // Asegúrate de que este log esté aquí
+
+    // Limpia el carrito después de la compra
+    setAllProducts([]);
   };
 
   return (
     <div>
       <h2 className="payment-heading">Detalles de Pago</h2>
       <form className="payment-form">
+        {/* Mostrar la lista de productos seleccionados */}
+        {allProducts.length > 0 ? (
+          <div className="selected-products">
+            <h3>Productos Seleccionados:</h3>
+            <ul>
+              {allProducts.map((product) => (
+                <li key={product.id}>
+                  {product.nameProduct} - ${product.precio} - Cantidad: {product.cantidad}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p></p>
+        )}
+
         <div className="input-container">
           <label htmlFor="nombre" className="label">
             Nombre:
@@ -67,6 +88,7 @@ const PaymentForm = () => {
           Tarjeta de Crédito
         </label>
       </div>
+      {/*  información de los productos seleccionados desde "allProducts" */}
       <button onClick={handleCheckout} className="checkout-button">
         Finalizar Compra
       </button>

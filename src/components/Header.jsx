@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import './Button.css';
 
 export default function Header({ allProducts, setAllProducts }) {
   const [cartVisible, setCartVisible] = useState(false);
+  const navigate = useNavigate(); // Obtiene la función de navegación
 
   const removeFromCart = (productToRemove) => {
     const updatedCart = allProducts.filter((product) => product.id !== productToRemove.id);
@@ -10,8 +12,9 @@ export default function Header({ allProducts, setAllProducts }) {
   };
 
   const handleCheckout = () => {
-    alert('Gracias por su compra');
+    alert('Gracias por elegirnos lo redirigimos a la seccion pago');
     setAllProducts([]); // Reiniciar el carrito
+    navigate('/pago'); // Navega a la sección de pago
   };
 
   const toggleCartVisibility = () => {

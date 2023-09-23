@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import PaymentForm from './components/PaymentForm';
-import Contacto from './components/contacto'; // Importa el componente Contacto
+import Contacto from './components/contacto';
 
 function App() {
   const [allProducts, setAllProducts] = useState([]);
@@ -35,7 +35,7 @@ function App() {
                 <Link to="/pago">Pago</Link>
               </li>
               <li className="nav-item">
-                <Link to="/contacto">Contacto</Link> {/* Actualiza el enlace */}
+                <Link to="/contacto">Contacto</Link>
               </li>
             </ul>
           </div>
@@ -51,8 +51,11 @@ function App() {
                 </div>
               }
             />
-            <Route path="/pago" element={<PaymentForm />} />
-            <Route path="/contacto" element={<Contacto />} /> {/* Actualiza esta ruta */}
+            <Route
+              path="/pago"
+              element={<PaymentForm allProducts={allProducts} setAllProducts={setAllProducts} />}
+            />
+            <Route path="/contacto" element={<Contacto />} />
           </Routes>
         </div>
       </div>

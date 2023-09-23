@@ -20,6 +20,9 @@ export default function ProductList({ allProducts, setAllProducts }) {
 
     // Actualiza el estado del carrito
     setAllProducts(newCart);
+
+    // Agrega un console.log para verificar si los productos se están agregando correctamente
+    console.log("Productos en carrito:", newCart);
   };
 
   // Función para cambiar la categoría seleccionada
